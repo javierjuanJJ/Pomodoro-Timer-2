@@ -1,0 +1,35 @@
+- generic [ref=e3]:
+  - status [ref=e4]: Short break complete — work started
+  - banner [ref=e5]:
+    - heading "Pomodoro" [level=1] [ref=e6]
+    - button "Settings" [ref=e7]
+  - main [ref=e12]:
+    - tablist "Timer phases" [ref=e13]:
+      - tab "Work" [selected] [ref=e14]
+      - tab "Short break" [ref=e15]
+      - tab "Long break" [ref=e16]
+    - tabpanel "Work" [ref=e52]:
+      - generic [ref=e22]:
+        - generic [ref=e23]: 0:59
+        - generic [ref=e24]: Work
+      - generic [ref=e25]:
+        - button "Pause" [ref=e55]
+        - button "Reset" [ref=e27]
+        - button "Skip" [ref=e31]
+      - img "Session 0 of 4 toward the next long break" [ref=e35]
+  - dialog [ref=e56]:
+    - generic [ref=e57]:
+      - heading "Settings" [level=2] [ref=e58]
+      - generic [ref=e59]:
+        - generic [ref=e60]: Work minutes
+        - spinbutton "Work minutes" [active] [ref=e61]: "1"
+      - generic [ref=e62]:
+        - generic [ref=e63]: Short break minutes
+        - spinbutton "Short break minutes" [ref=e64]: "1"
+      - generic [ref=e65]:
+        - generic [ref=e66]: Long break minutes
+        - spinbutton "Long break minutes" [ref=e67]: "3"
+      - generic [ref=e68]:
+        - generic [ref=e69]: Long break every (sessions)
+        - spinbutton "Long break every (sessions)" [ref=e70]: "4"
+      - button "Close" [ref=e71]

@@ -1,0 +1,35 @@
+- generic [ref=f4e3]:
+  - status [ref=f4e4]
+  - banner [ref=f4e5]:
+    - heading "Pomodoro" [level=1] [ref=f4e6]
+    - button "Settings" [ref=f4e7]
+  - main [ref=f4e12]:
+    - tablist "Timer phases" [ref=f4e13]:
+      - tab "Work" [selected] [ref=f4e14]
+      - tab "Short break" [ref=f4e15]
+      - tab "Long break" [ref=f4e16]
+    - tabpanel "Work" [ref=f4e17]:
+      - generic [ref=f4e22]:
+        - generic [ref=f4e23]: 25:00
+        - generic [ref=f4e24]: Work
+      - generic [ref=f4e25]:
+        - button "Start" [ref=f4e26]
+        - button "Reset" [ref=f4e27]
+        - button "Skip" [ref=f4e31]
+      - img "Session 0 of 4 toward the next long break" [ref=f4e35]
+  - dialog [ref=f4e40]:
+    - generic [ref=f4e41]:
+      - heading "Settings" [level=2] [ref=f4e42]
+      - generic [ref=f4e43]:
+        - generic [ref=f4e44]: Work minutes
+        - spinbutton "Work minutes" [active] [ref=f4e45]: "25"
+      - generic [ref=f4e46]:
+        - generic [ref=f4e47]: Short break minutes
+        - spinbutton "Short break minutes" [ref=f4e48]: "5"
+      - generic [ref=f4e49]:
+        - generic [ref=f4e50]: Long break minutes
+        - spinbutton "Long break minutes" [ref=f4e51]: "15"
+      - generic [ref=f4e52]:
+        - generic [ref=f4e53]: Long break every (sessions)
+        - spinbutton "Long break every (sessions)" [ref=f4e54]: "4"
+      - button "Close" [ref=f4e55]

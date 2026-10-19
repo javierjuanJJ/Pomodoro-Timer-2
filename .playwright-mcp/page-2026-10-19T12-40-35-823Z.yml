@@ -1,0 +1,19 @@
+- generic [ref=f4e3]:
+  - status [ref=f4e4]
+  - banner [ref=f4e5]:
+    - heading "Pomodoro" [level=1] [ref=f4e6]
+    - button "Settings" [ref=f4e7]
+  - main [ref=f4e12]:
+    - tablist "Timer phases" [ref=f4e13]:
+      - tab "Work" [ref=f4e14]
+      - tab "Short break" [ref=f4e15]
+      - tab "Long break" [active] [selected] [ref=f4e16]
+    - tabpanel "Long break" [ref=f4e56]:
+      - generic [ref=f4e22]:
+        - generic [ref=f4e23]: 15:00
+        - generic [ref=f4e24]: Long break
+      - generic [ref=f4e25]:
+        - button "Start" [ref=f4e26]
+        - button "Reset" [ref=f4e27]
+        - button "Skip" [ref=f4e31]
+      - img "Session 0 of 4 toward the next long break" [ref=f4e35]
