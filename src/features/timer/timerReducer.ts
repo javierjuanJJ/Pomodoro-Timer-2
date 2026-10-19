@@ -40,9 +40,10 @@ export type TimerAction =
   | { type: 'start'; now: number }
   | { type: 'pause'; now: number }
   | { type: 'resume'; now: number }
+  | { type: 'toggle'; now: number }
   | { type: 'reset' }
   | { type: 'skip'; now: number }
-  | { type: 'sessionCompleted'; now: number }
+  | { type: 'tick'; now: number }
   | { type: 'selectPhase'; phase: Phase }
   | { type: 'updateSettings'; settings: Partial<Settings>; now: number }
 
@@ -159,13 +160,25 @@ export function timerReducer(state: TimerState, action: TimerAction): TimerState
         pausedRemainingMs: remainingMs(state, action.now),
       }
     }
+    // Single start/pause button: running pauses, idle/paused start again.
+    case 'toggle': {
+      if (state.status === 'running') {
+        return timerReducer(state, { type: 'pause', now: action.now })
+      }
+      return timerReducer(state, { type: 'start', now: action.now })
+    }
     case 'reset': {
       return { ...state, status: 'idle', endsAt: null, pausedRemainingMs: null }
     }
     case 'skip':
       return advance(state, action.now, false)
-    case 'sessionCompleted':
+    // The UI interval dispatches `tick` on every beat; a session whose time
+    // ran out advances here — auto-advance stays a pure reducer transition.
+    case 'tick': {
+      if (state.status !== 'running') return state
+      if (remainingMs(state, action.now) > 0) return state
       return advance(state, action.now, true)
+    }
     case 'selectPhase': {
       return {
         ...state,
