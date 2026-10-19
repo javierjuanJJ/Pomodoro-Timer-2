@@ -4,24 +4,16 @@ Pomodoro Timer web app for learning frontend skills. Vite + React + strict TypeS
 
 ## Project status
 
-Not yet scaffolded. Bootstrap with:
-
-```bash
-npm create vite@latest . -- --template react-ts
-npm install
-npm install -D tailwindcss @tailwindcss/vite
-```
-
-Then verify every command below against the generated `package.json` and fix this file if anything differs.
+Scaffolded with create-vite v9 (`react-ts` template) + Tailwind v4 (`@tailwindcss/vite` plugin). TypeScript ~7.0 with `strict`, `noUncheckedIndexedAccess`, `noUnusedLocals`, `noUnusedParameters`, and `noFallthroughCasesInSwitch` enabled in both `tsconfig.app.json` and `tsconfig.node.json`. `erasableSyntaxOnly` is on — no enums or parameter properties; use union types.
 
 ## Commands
 
-Standard Vite scripts (confirm after scaffold):
+Standard Vite scripts (as defined in `package.json`):
 
 - `npm run dev` — dev server
 - `npm run build` — typecheck (`tsc -b`) + production build
 - `npm run preview` — serve the production build locally
-- `npm run lint` — ESLint
+- `npm run lint` — oxlint (the create-vite v9 template no longer ships ESLint)
 - `npm run typecheck` — `tsc -b --noEmit` (add this script if missing)
 
 Order before considering any change done: `lint` → `typecheck` → `build`.
