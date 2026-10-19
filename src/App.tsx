@@ -8,8 +8,17 @@ import { formatClock, PHASE_LABEL } from './features/timer/format'
 import { useTimerEngine } from './features/timer/useTimerEngine'
 
 function App() {
-  const { state, remaining, ratio, toggle, reset, skip, selectPhase, updateSettings } =
-    useTimerEngine()
+  const {
+    state,
+    remaining,
+    ratio,
+    announcement,
+    toggle,
+    reset,
+    skip,
+    selectPhase,
+    updateSettings,
+  } = useTimerEngine()
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   // Space = start/pause, R = reset, S = skip — never while typing, focused in
@@ -56,6 +65,12 @@ function App() {
 
   return (
     <div data-phase={state.phase} className="tint-bg flex min-h-svh flex-col items-center px-4 py-6">
+      {/* Persistent polite live region: announces auto-advances such as
+          "Work session complete — short break started". */}
+      <p role="status" aria-live="polite" className="sr-only">
+        {announcement}
+      </p>
+
       <header className="flex w-full max-w-xl items-center justify-between">
         <h1 className="text-xl font-extrabold uppercase tracking-widest text-neutral-700">
           Pomodoro

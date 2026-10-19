@@ -11,19 +11,20 @@
 }
 
 /* Single source of truth for the phase accent: everything downstream reads
-   --accent / --tint, set by data-phase on the app wrapper. */
+   --accent / --tint, set by phase on the app wrapper. Accents are dark enough
+   for white text and small accent text to pass WCAG AA contrast (>= 4.5:1). */
 [data-phase='work'] {
-  --accent: #d9544f;
+  --accent: #c0392b;
   --tint: #fdf1ef;
 }
 
 [data-phase='short'] {
-  --accent: #41a558;
+  --accent: #237a3f;
   --tint: #edf7ef;
 }
 
 [data-phase='long'] {
-  --accent: #3c7dd9;
+  --accent: #1a63c9;
   --tint: #edf3fb;
 }
 

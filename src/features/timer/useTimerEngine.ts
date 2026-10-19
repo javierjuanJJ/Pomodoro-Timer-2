@@ -46,11 +46,17 @@ export function useTimerEngine() {
     })
   }, [state.settings, state.completedPomodoros])
 
-  // Chime only for auto-advance: a manual tab switch leaves status idle.
+  // Chime + announcement only for auto-advance: a manual tab switch leaves
+  // status idle and is announced natively by the tablist selection.
+  const [announcement, setAnnouncement] = useState('')
   const prevPhase = useRef(state.phase)
   useEffect(() => {
     if (prevPhase.current !== state.phase && state.status === 'running') {
       playChime()
+      const from = prevPhase.current
+      setAnnouncement(
+        `${from === 'work' ? 'Work session' : PHASE_LABEL[from]} complete — ${PHASE_LABEL[state.phase].toLowerCase()} started`,
+      )
     }
     prevPhase.current = state.phase
   }, [state.phase, state.status])
@@ -91,6 +97,7 @@ export function useTimerEngine() {
     state,
     remaining,
     ratio: duration > 0 ? remaining / duration : 0,
+    announcement,
     toggle,
     reset,
     skip,

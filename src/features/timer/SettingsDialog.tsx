@@ -89,7 +89,7 @@ function NumberField({ id, label, value, min, max, onCommit }: NumberFieldProps)
 
   return (
     <div className="flex items-center justify-between gap-4">
-      <label htmlFor={id} className="text-sm font-semibold text-neutral-700">
+      <label htmlFor={id} className="min-w-0 flex-1 text-sm font-semibold text-neutral-700">
         {label}
       </label>
       <input

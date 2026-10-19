@@ -61,10 +61,10 @@ export function PhaseTabs({ phase, onSelect }: PhaseTabsProps) {
           tabIndex={p === phase ? 0 : -1}
           onClick={() => onSelect(p)}
           className={
-            'min-h-11 rounded-full px-4 text-sm font-semibold uppercase tracking-wide ' +
+            'min-h-11 whitespace-nowrap rounded-full px-3 text-xs font-semibold uppercase tracking-wide sm:px-4 sm:text-sm ' +
             (p === phase
               ? 'accent-text underline decoration-2 underline-offset-6'
-              : 'text-neutral-500 hover:text-neutral-700')
+              : 'text-neutral-600 hover:text-neutral-800')
           }
         >
           {PHASE_LABEL[p]}
